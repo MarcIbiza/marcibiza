@@ -1,0 +1,27 @@
+{
+    "remotePath": "./httpdocs",
+    "host": "lin180.loading.es",
+    "username": "marcibiz",
+    "password": "r742iUOlPR8[g;",
+    "port": 21,
+    "secure": true,
+    "protocol": "ftp",
+    "uploadOnSave": true,
+    "passive": false,
+    "debug": true,
+    "privateKeyPath": null,
+    "passphrase": null,
+    "agent": null,
+    "allow": [],
+    "ignore": [
+        "\\.vscode",
+        "\\.git",
+        "\\.DS_Store"
+    ],
+    "generatedFiles": {
+        "extensionsToInclude": [
+            ""
+        ],
+        "path": "/httpdocs"
+    }
+}
