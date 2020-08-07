@@ -1,44 +1,139 @@
-$("#email").change(function(){
 
-	$(".alert").remove();
+/*=============================================
+BANNER
+=============================================*/
 
-	var email = $(this).val();
+$(".fade-slider").jdSlider({
+
+	isSliding: false,
+	isAuto: true,
+	isLoop: true,
+	isDrag: false,
+	interval:5000,
+	isCursor: false,
+	speed:3000
+
+});
+
+var alturaBanner = $(".fade-slider").height();
+
+$(".bannerEstatico").css({"height":alturaBanner+"px"})
+
+
+/*=============================================
+ANIMACIONES SCROLL
+=============================================*/
+
+$(window).scroll(function(){
+
+	var posY = window.pageYOffset;
 	
-	var datos = new FormData();
-	datos.append("validarEmail", email);
+	if(posY > alturaBanner){
 
-	$.ajax({
+		$("header").css({"background":"white"})
 
-		url: "ajax/formularios.ajax.php",
-		method: "POST",
-		data: datos,
-		cache: false,
-		contentType: false,
-		processData: false,
-		dataType: "json",
-		success:function(respuesta){
-			
-			if(respuesta){
+		$("header .logotipo").css({"filter":"invert(100%)"})
 
-				$("#email").val("");
+		$(".fa-search, .fa-bars").css({"color":"black"})
 
-				$("#email").parent().after(`
-					
-					<div class="alert alert-warning">
+	}else{
 
-							<b>ERROR:</b>
+		$("header").css({"background":"rgba(0,0,0,.5)"})
 
-							El correo electrónico ya existe en la base de datos,  por favor ingrese otro diferente
-					</div>
+		$("header .logotipo").css({"filter":"invert(0%)"})
 
+		$(".fa-search, .fa-bars").css({"color":"white"})
 
-				`);
-
-			}
-
-		}
-
-	});
-
+	}
 
 })
+
+/*=============================================
+MENÚ
+=============================================*/
+
+$(".fa-bars").click(function(){
+
+	$(".menu").fadeIn("fast");
+
+})
+
+$(".btnClose").click(function(e){
+
+	e.preventDefault();
+
+	$(".menu").fadeOut("fast");
+
+})
+
+/*=============================================
+GRID CATEGORÍAS
+=============================================*/
+
+$(".grid figure, .gridFooter figure").mouseover(function(){
+
+	$(this).css({"background-position":"right bottom"})
+
+})
+
+$(".grid figure, .gridFooter figure").mouseout(function(){
+
+	$(this).css({"background-position":"left top"})
+
+})
+
+$(".grid figure, .gridFooter figure").click(function(){
+
+	var vinculo = $(this).attr("vinculo");
+
+	window.location = vinculo;
+
+})
+
+/*=============================================
+PAGINACIÓN
+=============================================*/
+
+$(".pagination").twbsPagination({
+	totalPages: 10,
+	visiblePages: 4,
+	first: "Primero",
+	last: "Último",
+	prev: '<i class="fas fa-angle-left"></i>',
+	next: '<i class="fas fa-angle-right"></i>'
+
+});
+
+
+/*=============================================
+SCROLL UP
+=============================================*/
+
+$.scrollUp({
+	scrollText:"",
+	scrollSpeed: 2000,
+	easingType: "easeOutQuint"
+})
+
+/*=============================================
+DESLIZADOR DE ARTÍCULOS
+=============================================*/
+
+
+$(".deslizadorArticulos").jdSlider({
+	wrap: ".slide-inner",
+	slideShow: 3,
+	slideToScroll:3,
+	isLoop: true,
+	responsive: [{
+		viewSize: 320,
+		settings:{
+			slideShow: 1,
+			slideToScroll: 1
+		}
+
+	}]
+
+})
+
+
