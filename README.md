@@ -1,6 +1,6 @@
 - 👋 Hello, I’m Marc Ibiza.
 - 👀 Me apasiona el desarrollo web Front End.
-- 🌱 Actualmente estoy aprendiendo React.
+- 🌱 Actualmente estoy aprendiendo Angular.
 - 💞️ Me gusta colaborar con proyectos y aportar en lo que se pueda.
 - 📫 Puedes contactarme por LinkedIn o por correo eléctronico marc.ibiza.88@gmail.com 
 
